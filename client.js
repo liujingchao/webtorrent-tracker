@@ -252,6 +252,7 @@ Tracker.prototype._onSocketMessage = function (data) {
   if (data.answer) {
     peer = self._peers[data.offer_id]
     if (peer) {
+      peer.id=data.offer_id
       peer.signal(data.answer)
       self.client.emit('peer', peer)
     }
